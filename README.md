@@ -14,7 +14,9 @@ Conveniently, the HP deskjet's internal 22V DC power supply is a little brick ju
 
 ## nas script
 
-We have a little cgi-bin script that 
+We have a little cgi-bin script that actually invokes the scanner running on a local network attached storage server (a raspberry pi). For the HP Deskjet 2600, you can remotely trigger and retrieve a scan by sending it a series of HTTP requests. 
+
+The script also uses PIL to determine whether or not the current image is the same as the last one (in which case, it discards the newfound duplicate). It can also detect blank pages (i.e. an empty scanner), and it runs all scans through Tesseract and stores the text content into a single large file (for easy grepping). 
 
 ## initial firmware flash
 
